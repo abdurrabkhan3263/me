@@ -11,11 +11,10 @@ function Login() {
   const navigate = useNavigate();
   const { register, handleSubmit } = useForm();
   const [error, setError] = useState(null);
-
   const login = async (data) => {
     setError(null);
     try {
-      const session = await authService.loginAccount(data);
+      const session = await authService.login(data);
       if (session) {
         const userData = await authService.getCurrentUser();
         if (userData) dispatch(authLogin({ userData: userData }));
@@ -48,8 +47,8 @@ function Login() {
         </p>
         {error && <p className="text-red-600 mt-8 text-center">{error}</p>}
         <form onSubmit={handleSubmit(login)} className="mt-8">
-          //handleSubmit ek method hai jahan per ham apna method dete hain kiss
-          tarah se form ko handle karenge
+          {/* //handleSubmit ek method hai jahan per ham apna method dete hain kiss
+          tarah se form ko handle karenge */}
           <div className="space-y-5">
             <Input
               label="Email"

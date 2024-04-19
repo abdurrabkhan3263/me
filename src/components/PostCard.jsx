@@ -9,9 +9,9 @@ function PostCard({ $id, title, featuredImage }) {
       <div className="w-full bg-gray-100 rounded-xl p-4">
         <div className="flex justify-center mb-4 w-full">
           <img
-            src={`${service.getFilePreview(featuredImage)}`}
+            src={service.getFilePreview(featuredImage)}
             alt={title}
-            className="rounded-xl "
+            className="rounded-xl"
           />
         </div>
         <h2 className="text-xl font-bold">{title}</h2>

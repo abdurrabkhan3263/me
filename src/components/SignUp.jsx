@@ -12,6 +12,7 @@ function SignUp() {
   const dispatch = useDispatch();
   const { register, handleSubmit } = useForm();
   const create = async (data) => {
+    console.log(data);
     setError("");
     try {
       const userData = await authService.createAccount(data);
@@ -20,7 +21,9 @@ function SignUp() {
         if (userData) dispatch(login(userData));
         navigate("/");
       }
-    } catch (error) {}
+    } catch (error) {
+      console.log("Error in SignUp Section ", error);
+    }
   };
   return (
     <div className="flex items-center justify-center">

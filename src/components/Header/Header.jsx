@@ -1,13 +1,11 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Container, Logo, LogOutBtn } from "../index";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { v4 as uuidv4 } from "uuid";
 
 function Header() {
   const authStatus = useSelector((state) => state.authReducer.status);
   const navigate = useNavigate();
-  const uniqueId = uuidv4();
   const navItems = [
     {
       name: "Home",
@@ -48,9 +46,11 @@ function Header() {
           <ul className="flex ml-auto">
             {navItems.map((value) => {
               return value.active ? (
-                <li key={uniqueId} id={uniqueId}>
+                <li key={value.slug}>
                   <button
-                    onClick={() => navigate(value.slug)}
+                    onClick={() => {
+                      navigate(value.slug);
+                    }}
                     className="inline-bock px-6 py-2 duration-200 hover:bg-blue-100 rounded-full"
                   >
                     {value.name}
